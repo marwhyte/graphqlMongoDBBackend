@@ -1,12 +1,8 @@
+import { ApolloServer, gql } from "apollo-server-express";
 import "babel-polyfill";
+import mongoose from "mongoose";
+import express from "express";
+import cookieParser from "cookie-parser";
+import "reflect-metadata";
 
-(async () => {
-  try {
-    console.log("connect here");
-  } catch (error) {
-    console.log("check for DB connect here");
-    process.exit(1);
-  }
-
-  console.log("server running on port");
-})();
+console.log("hi");
