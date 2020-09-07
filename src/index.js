@@ -1,20 +1,29 @@
 import { ApolloServer, gql } from "apollo-server-express";
-import { typeDefs, resolvers } from "./schema";
+import { typeDefs } from "./types/typeDefs";
+import { resolvers } from "./resolvers/resolvers";
 import "babel-polyfill";
 import mongoose from "mongoose";
 import express from "express";
 import cookieParser from "cookie-parser";
 import "reflect-metadata";
 
-const app = express();
+require("dotenv").config();
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+const startTheServer = async () => {
+  const app = express();
 
-server.applyMiddleware({ app });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
+  server.applyMiddleware({ app });
 
-app.listen({ port: 5000 }, () =>
-  console.log(`server running at http://localhost:4000${server.graphqlPath}`)
-);
+  mongoose.connect(process.env.MY_URI, {
+    useUnifiedTopology: true,
+  });
+  app.listen({ port: 5000 }, () =>
+    console.log(`server running at http://localhost:5000${server.graphqlPath}`)
+  );
+};
+
+startTheServer();
