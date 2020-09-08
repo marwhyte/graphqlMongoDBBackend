@@ -1,5 +1,5 @@
 import DataLoader from "dataloader";
-import { User as UserModel } from "../model";
+import { User as ourModel } from "../models/User";
 import {
   connectionFromMongoCursor,
   mongooseLoader,
@@ -18,7 +18,7 @@ export default class User {
 }
 
 export const getLoader = () =>
-  new DataLoader((ids) => mongooseLoader(UserModel, ids));
+  new DataLoader((ids) => mongooseLoader(ourModel, ids));
 
 const viewerCanSee = (viewer, data) =>
   // Anyone can see another user
@@ -44,7 +44,7 @@ export const loadUsers = async (context, args) => {
   const where = args.search
     ? { name: { $regex: new RegExp(`^${args.search}`, "ig") } }
     : {};
-  const users = UserModel.find(where, { _id: 1 }).sort({ createdAt: -1 });
+  const users = ourModel.find(where, { _id: 1 }).sort({ createdAt: -1 });
 
   return connectionFromMongoCursor({
     cursor: users,
