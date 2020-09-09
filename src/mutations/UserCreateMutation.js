@@ -1,4 +1,4 @@
-const { userType } = require("../types/nodeInterfaceType");
+import { userType } from "../types/nodeInterfaceType";
 
 import { GraphQLString, GraphQLBoolean, GraphQLInt, GraphQLID } from "graphql";
 import UserClass from "../userActions";

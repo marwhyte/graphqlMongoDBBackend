@@ -1,4 +1,4 @@
-const { userType } = require("../types/nodeInterfaceType");
+import userType from "../types/nodeInterfaceType";
 
 import { GraphQLString, GraphQLBoolean, GraphQLInt, GraphQLID } from "graphql";
 import UserClass from "../userActions";
@@ -10,7 +10,7 @@ export const DeleteUser = {
   },
   resolve: async (_, { _id }) => {
     const userClass = new UserClass();
-    const res = await UserClass.deleteUser(_id);
+    const res = await userClass.deleteUser(_id);
 
     if (res.ok) {
       return true;
