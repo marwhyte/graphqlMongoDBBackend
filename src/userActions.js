@@ -1,8 +1,8 @@
-import MongoDbRepo from "./repository/mongoRepo";
+import { MongoDbRepo } from "./repository/mongoRepo";
 
 export default class UserClass {
   constructor() {
-    this.UserRepository = new MongoDbRepo("Users");
+    this.UserRepository = new MongoDbRepo("users");
   }
 
   getUserById(id) {

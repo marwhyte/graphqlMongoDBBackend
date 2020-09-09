@@ -11,5 +11,6 @@ export const CreateUser = {
   resolve: async (_, { name }) => {
     const userClass = new UserClass();
     const newUser = await userClass.createUser({ name });
+    return newUser;
   },
 };
