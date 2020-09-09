@@ -1,15 +1,14 @@
-import { mongoClient } from "mongodb";
+import MongoClient from "mongodb";
 
 let mongoDB;
 
 export const setupDB = (callback) => {
   const uri = process.env.MY_URI;
-
-  mongoClient.connect(
+  MongoClient.connect(
     uri,
     { useNewUrlParser: true, useUnifiedTopology: true },
     (err, client) => {
-      mongoDB = client.db("MERG-BE");
+      mongoDB = client.db("marcoDB");
 
       if (err) {
         return callback(err);

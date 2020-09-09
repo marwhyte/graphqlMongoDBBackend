@@ -1,6 +1,6 @@
 import express from "express";
 import { mongoClient } from "mongodb";
-import graphqlHTTP from "express-graphql";
+import { graphqlHTTP } from "express-graphql";
 import { setupDB } from "./dbSetup";
 import schema from "./schema";
 

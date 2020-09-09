@@ -1,12 +1,12 @@
 import { GraphQLObjectType } from "graphql";
+import { CreateUser } from "../mutations/UserCreateMutation";
+import { DeleteUser } from "../mutations/UserDeleteMutation";
 
-import Login from "../mutations/LoginMutation";
-import Register from "../mutations/RegisterMutation";
-
-export default new GraphQLObjectType({
+export const MutationType = new GraphQLObjectType({
   name: "Mutation",
+  description: "All the Mutations",
   fields: () => ({
-    Login,
-    Register,
+    createUser: CreateUser,
+    deleteUser: DeleteUser,
   }),
 });

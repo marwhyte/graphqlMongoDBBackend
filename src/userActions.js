@@ -1,6 +1,6 @@
 import MongoDbRepo from "./repository/mongoRepo";
 
-export class UserService {
+export default class UserClass {
   constructor() {
     this.UserRepository = new MongoDbRepo("Users");
   }
