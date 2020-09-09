@@ -55,6 +55,21 @@ export class MongoDbRepo {
     });
   }
 
+  pushInto(name, newProperty) {
+    return new Promise((resolve, reject) => {
+      this.collection.updateOne(
+        { name: name },
+        { $push: { myProperties: newProperty } },
+        (err, data) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(data);
+        }
+      );
+    });
+  }
+
   deleteOne(_id) {
     return new Promise((resolve, reject) => {
       this.collection.findOneAndDelete({ _id: ObjectId(_id) }, (err, data) => {
@@ -66,14 +81,18 @@ export class MongoDbRepo {
     });
   }
 
-  create(opt) {
+  create(name) {
     return new Promise((resolve, reject) => {
-      this.collection.insertOne(opt, (err, data) => {
-        if (err) {
-          reject(err);
+      console.log(name);
+      this.collection.insertOne(
+        { name: name, myProperties: [] },
+        (err, data) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(data.ops[0]);
         }
-        resolve(data.ops[0]);
-      });
+      );
       1;
     });
   }

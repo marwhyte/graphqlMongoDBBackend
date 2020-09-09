@@ -14,7 +14,7 @@ export const CreateUser = {
     if (userExists !== null) {
       return null;
     } else {
-      const newUser = await userClass.createUser({ name });
+      const newUser = await userClass.createUser(name);
       return newUser;
     }
   },

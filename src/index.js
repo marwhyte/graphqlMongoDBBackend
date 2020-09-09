@@ -14,7 +14,7 @@ setupDB((v) => console.log(v));
 
 app.use(cors());
 
-app.use("/zillowAddress", zillowApi);
+// app.use("/zillowAddress", zillowApi);
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -24,5 +24,6 @@ app.use(
   })
 );
 
-app.listen(port);
-console.log("here");
+app.listen(port, () =>
+  console.log(`Server running at http://localhost:${port}`)
+);

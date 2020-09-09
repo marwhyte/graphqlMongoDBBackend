@@ -14,8 +14,11 @@ export default class UserClass {
   deleteUser(_id) {
     return this.UserRepository.deleteOne(_id);
   }
+  addProperty(name, newProperty) {
+    return this.UserRepository.pushInto(name, newProperty);
+  }
 
-  createUser(opt) {
-    return this.UserRepository.create(opt);
+  createUser(name) {
+    return this.UserRepository.create(name);
   }
 }

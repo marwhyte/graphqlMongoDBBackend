@@ -2,7 +2,7 @@ var unirest = require("unirest");
 const express = require("express");
 const Zillow = require("node-zillow");
 
-const zillow = new Zillow("X1-ZWz1hzqplsyyvf_81d4x");
+const zillow = new Zillow(process.env.ZILLOW_API);
 
 const router = express.Router();
 
