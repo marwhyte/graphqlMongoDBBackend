@@ -10,7 +10,12 @@ export const CreateUser = {
   },
   resolve: async (_, { name }) => {
     const userClass = new UserClass();
-    const newUser = await userClass.createUser({ name });
-    return newUser;
+    const userExists = await userClass.getUserByName(name);
+    if (userExists !== null) {
+      return null;
+    } else {
+      const newUser = await userClass.createUser({ name });
+      return newUser;
+    }
   },
 };

@@ -6,9 +6,11 @@ export default class UserClass {
   }
 
   getUserById(id) {
-    return this.UserRepository.geById(id);
+    return this.UserRepository.getById(id);
   }
-
+  getUserByName(name) {
+    return this.UserRepository.getByName(name);
+  }
   deleteUser(_id) {
     return this.UserRepository.deleteOne(_id);
   }

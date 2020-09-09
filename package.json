@@ -29,7 +29,9 @@
     "kcors": "^2.2.2",
     "mongodb": "^3.6.1",
     "mongoose": "^5.10.3",
-    "reflect-metadata": "^0.1.13"
+    "node-zillow": "^2.0.0",
+    "reflect-metadata": "^0.1.13",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
