@@ -1,4 +1,4 @@
-import { GraphQLSchema } from "graphql";
+import { GraphQLSchema, GraphQLObjectType } from "graphql";
 
 import QueryType from "./types/QueryType";
 import MutationType from "./types/MutationType";

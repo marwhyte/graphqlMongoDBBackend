@@ -10,7 +10,6 @@ import { NodeInterface } from "../interface/NodeInterface";
 import UserType from "./UserType";
 import TweetType from "./TweetType";
 import { NodeField } from "../interface/NodeInterface";
-import { UserLoader, TweetLoader } from "../loader";
 import UserConnection from "../connection/UserConnection";
 
 export default new GraphQLObjectType({
