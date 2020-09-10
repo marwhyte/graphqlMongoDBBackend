@@ -27,9 +27,10 @@ export class MongoDbRepo {
       });
     });
   }
-  getByName(name) {
+
+  getByUsername(username) {
     return new Promise((resolve, reject) => {
-      this.collection.findOne({ name: name }, (err, data) => {
+      this.collection.findOne({ username: username }, (err, data) => {
         if (err) {
           reject(err);
         }
@@ -55,10 +56,10 @@ export class MongoDbRepo {
     });
   }
 
-  pushInto(name, newProperty) {
+  pushInto(username, newProperty) {
     return new Promise((resolve, reject) => {
       this.collection.updateOne(
-        { name: name },
+        { username: username },
         { $push: { myProperties: newProperty } },
         (err, data) => {
           if (err) {
@@ -81,11 +82,10 @@ export class MongoDbRepo {
     });
   }
 
-  create(name) {
+  create(username, password) {
     return new Promise((resolve, reject) => {
-      console.log(name);
       this.collection.insertOne(
-        { name: name, myProperties: [] },
+        { username: username, password: password, myProperties: [] },
         (err, data) => {
           if (err) {
             reject(err);
@@ -93,7 +93,6 @@ export class MongoDbRepo {
           resolve(data.ops[0]);
         }
       );
-      1;
     });
   }
 }

@@ -6,15 +6,13 @@ import UserClass from "../userActions";
 export const AddProperty = {
   type: GraphQLBoolean,
   args: {
-    name: { type: GraphQLString },
+    username: { type: GraphQLString },
     newProperty: { type: GraphQLString },
   },
-  resolve: async (_, { name, newProperty }) => {
+  resolve: async (_, { username, newProperty }) => {
     const userClass = new UserClass();
-    console.log(name, newProperty);
-    const res = await userClass.addProperty(name, newProperty);
-    console.log(res);
-    if (res.ok) {
+    const res = await userClass.addProperty(username, newProperty);
+    if (res.modifiedCount) {
       return true;
     } else {
       return false;

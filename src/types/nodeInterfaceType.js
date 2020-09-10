@@ -10,7 +10,8 @@ export const userType = new GraphQLObjectType({
   name: "User",
   fields: {
     _id: { type: GraphQLID },
-    name: { type: GraphQLString },
+    username: { type: new GraphQLNonNull(GraphQLString) },
+    password: { type: new GraphQLNonNull(GraphQLString) },
     myProperties: { type: new GraphQLList(GraphQLString) },
   },
 });

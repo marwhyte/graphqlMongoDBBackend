@@ -8,17 +8,17 @@ export default class UserClass {
   getUserById(id) {
     return this.UserRepository.getById(id);
   }
-  getUserByName(name) {
-    return this.UserRepository.getByName(name);
+  getUserByUsername(username) {
+    return this.UserRepository.getByUsername(username);
   }
   deleteUser(_id) {
     return this.UserRepository.deleteOne(_id);
   }
-  addProperty(name, newProperty) {
-    return this.UserRepository.pushInto(name, newProperty);
+  addProperty(username, newProperty) {
+    return this.UserRepository.pushInto(username, newProperty);
   }
 
-  createUser(name) {
-    return this.UserRepository.create(name);
+  createUser(username, password) {
+    return this.UserRepository.create(username, password);
   }
 }

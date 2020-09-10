@@ -4,11 +4,11 @@ import { GraphQLString, GraphQLList } from "graphql";
 export const GetUserProperties = {
   type: new GraphQLList(GraphQLString),
   args: {
-    name: { type: GraphQLString },
+    username: { type: GraphQLString },
   },
-  resolve: async (_, { name }) => {
+  resolve: async (_, { username }) => {
     const userClass = new UserClass();
-    const user = await userClass.getUserByName(name);
+    const user = await userClass.getUserByUsername(username);
 
     return user.myProperties;
   },

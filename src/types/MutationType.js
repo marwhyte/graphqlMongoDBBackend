@@ -1,7 +1,8 @@
 import { GraphQLObjectType } from "graphql";
-import { CreateUser } from "../mutations/UserCreateMutation";
+import { CreateUser } from "../mutations/RegisterMutation";
 import { DeleteUser } from "../mutations/UserDeleteMutation";
 import { AddProperty } from "../mutations/AddPropertyMutation";
+import { LoginUser } from "../mutations/LoginMutation";
 
 export const MutationType = new GraphQLObjectType({
   name: "Mutation",
@@ -10,5 +11,6 @@ export const MutationType = new GraphQLObjectType({
     createUser: CreateUser,
     deleteUser: DeleteUser,
     addProperty: AddProperty,
+    loginUser: LoginUser,
   }),
 });
