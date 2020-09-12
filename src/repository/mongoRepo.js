@@ -95,14 +95,16 @@ export class MongoDbRepo {
       );
     });
   }
-  createProperty(username, newProperty) {
+  createProperty(name, numberOfRooms, createdBy) {
     return new Promise((resolve, reject) => {
       this.collection.insertOne(
-        { username: username, newProperty: newProperty },
+        { name, numberOfRooms, createdBy },
         (err, data) => {
           if (err) {
             reject(err);
           }
+          console.log("data", data);
+          console.log("operation", data.ops[0]);
           resolve(data.ops[0]);
         }
       );

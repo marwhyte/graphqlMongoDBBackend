@@ -20,6 +20,7 @@ export const propertyType = new GraphQLObjectType({
   fields: {
     _id: { type: GraphQLID },
     name: { type: new GraphQLNonNull(GraphQLString) },
+    numberOfRooms: { type: new GraphQLNonNull(GraphQLString) },
     createdBy: { type: new GraphQLNonNull(GraphQLString) },
   },
 });

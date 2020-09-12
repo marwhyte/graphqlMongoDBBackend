@@ -18,7 +18,11 @@ export default class propertyClass {
     return this.propertyRepository.deleteOne(_id);
   }
 
-  createProperty(username, newProperty) {
-    return this.propertyRepository.createProperty(username, newProperty);
+  createProperty(name, numberOfRooms, createdBy) {
+    return this.propertyRepository.createProperty(
+      name,
+      numberOfRooms,
+      createdBy
+    );
   }
 }
