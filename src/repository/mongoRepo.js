@@ -1,6 +1,5 @@
 import { getDB } from "../dbSetup";
-import { ObjectID } from "mongodb";
-
+import { ObjectId } from "mongodb";
 export class MongoDbRepo {
   constructor(collectionName) {
     this.collection = getDB().collection(collectionName);

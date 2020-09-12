@@ -12,7 +12,7 @@ export const DeleteUser = {
     const userClass = new UserClass();
     const res = await userClass.deleteUser(_id);
 
-    if (res.ok) {
+    if (res.value) {
       return true;
     } else {
       return false;

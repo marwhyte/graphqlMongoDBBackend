@@ -23,4 +23,5 @@ type Mutation {
   deleteUser(_id: ID): Boolean
   createProperty(name: String, numberOfRooms: String, createdBy: String): Property
   loginUser(username: String, password: String): User
+  deleteProperty(_id: ID): Boolean
 }
