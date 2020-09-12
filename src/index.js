@@ -7,7 +7,7 @@ import zillowApi from "./zillowApi";
 import { printSchemaOnRun } from "./schemaPrint";
 require("dotenv").config();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const runServer = () => {
   const app = express();

@@ -2,7 +2,7 @@ import UserClass from "../userActions";
 import { GraphQLString, GraphQLList } from "graphql";
 import PropertyClass from "../propertyActions";
 import { propertyType } from "../types/nodeInterfaceType";
-export const GetUserProperties = {
+export const GetAllProperties = {
   type: new GraphQLList(propertyType),
   args: {},
   resolve: async (_) => {
