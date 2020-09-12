@@ -13,7 +13,7 @@ export const CreateProperty = {
     const propertyClass = new PropertyClass();
     const userClass = new UserClass();
 
-    const userExists = await userClass.getUserByUsername(username);
+    const userExists = await userClass.getUserByUsername(createdBy);
     if (userExists) {
       const res = await propertyClass.createProperty(
         name,

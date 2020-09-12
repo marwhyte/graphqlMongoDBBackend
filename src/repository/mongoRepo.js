@@ -103,8 +103,6 @@ export class MongoDbRepo {
           if (err) {
             reject(err);
           }
-          console.log("data", data);
-          console.log("operation", data.ops[0]);
           resolve(data.ops[0]);
         }
       );
