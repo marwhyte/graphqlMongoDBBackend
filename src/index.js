@@ -3,27 +3,34 @@ const graphqlHTTP = require("express-graphql").graphqlHTTP;
 import { setupDB } from "./dbSetup";
 import { schema } from "./schema";
 import cors from "cors";
-import { printSchema } from "graphql";
 import zillowApi from "./zillowApi";
+import { printSchemaOnRun } from "./schemaPrint";
 require("dotenv").config();
 
-const port = process.env.PORT || 4000;
-const app = express();
+const port = process.env.PORT || 3000;
 
-setupDB((v) => console.log(v));
+const runServer = () => {
+  const app = express();
 
-app.use(cors());
+  setupDB((v) => console.log(v));
 
-// app.use("/zillowAddress", zillowApi);
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-    pretty: true,
-  })
-);
+  app.use(cors());
 
-app.listen(port, () =>
-  console.log(`Server running at http://localhost:${port}`)
-);
+  // app.use("/zillowAddress", zillowApi);
+  app.use(
+    "/graphql",
+    graphqlHTTP({
+      schema,
+      graphiql: true,
+      pretty: true,
+    })
+  );
+
+  printSchemaOnRun(schema);
+
+  app.listen(port, () =>
+    console.log(`Server running at http://localhost:${port}`)
+  );
+};
+
+runServer();
