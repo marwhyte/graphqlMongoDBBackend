@@ -1,7 +1,7 @@
 import { GraphQLObjectType } from "graphql";
 import { CreateUser } from "../mutations/RegisterMutation";
 import { DeleteUser } from "../mutations/UserDeleteMutation";
-import { AddProperty } from "../mutations/AddPropertyMutation";
+import { CreateProperty } from "../mutations/CreatePropertyMutation";
 import { LoginUser } from "../mutations/LoginMutation";
 
 export const MutationType = new GraphQLObjectType({
@@ -10,7 +10,7 @@ export const MutationType = new GraphQLObjectType({
   fields: () => ({
     createUser: CreateUser,
     deleteUser: DeleteUser,
-    addProperty: AddProperty,
+    createProperty: CreateProperty,
     loginUser: LoginUser,
   }),
 });

@@ -1,15 +1,15 @@
 import UserClass from "../userActions";
 import { GraphQLString, GraphQLList } from "graphql";
-
+import PropertyClass from "../propertyActions";
 export const GetUserProperties = {
   type: new GraphQLList(GraphQLString),
   args: {
     username: { type: GraphQLString },
   },
   resolve: async (_, { username }) => {
-    const userClass = new UserClass();
-    const user = await userClass.getUserByUsername(username);
+    const propertyClass = new PropertyClass();
+    const properties = propertyClass.getAllProperties();
 
-    return user.myProperties;
+    return properties;
   },
 };

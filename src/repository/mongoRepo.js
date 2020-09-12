@@ -82,10 +82,23 @@ export class MongoDbRepo {
     });
   }
 
-  create(username, password) {
+  createUser(username, password) {
     return new Promise((resolve, reject) => {
       this.collection.insertOne(
-        { username: username, password: password, myProperties: [] },
+        { username: username, password: password },
+        (err, data) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(data.ops[0]);
+        }
+      );
+    });
+  }
+  createProperty(username, newProperty) {
+    return new Promise((resolve, reject) => {
+      this.collection.insertOne(
+        { username: username, newProperty: newProperty },
         (err, data) => {
           if (err) {
             reject(err);
