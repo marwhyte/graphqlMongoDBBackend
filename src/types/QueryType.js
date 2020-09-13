@@ -11,6 +11,6 @@ export const QueryType = new GraphQLObjectType({
   description: "All The Queries",
   fields: () => ({
     user: UserQuery,
-    userProperties: GetAllProperties,
+    getAllProperties: GetAllProperties,
   }),
 });

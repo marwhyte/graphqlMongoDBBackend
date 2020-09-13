@@ -1,7 +1,7 @@
 """All The Queries"""
 type Query {
   user(_id: String): User
-  userProperties: [Property]
+  getAllProperties: [Property]
 }
 
 type User {
@@ -23,5 +23,5 @@ type Mutation {
   deleteUser(_id: ID): Boolean
   createProperty(name: String, numberOfRooms: String, createdBy: String): Property
   loginUser(username: String, password: String): User
-  deleteProperty(_id: ID): Boolean
+  deleteProperty(_id: ID, userID: String): Boolean
 }

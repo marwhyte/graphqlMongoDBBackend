@@ -6,15 +6,22 @@ export const DeleteProperty = {
   type: GraphQLBoolean,
   args: {
     _id: { type: GraphQLID },
+    userID: { type: GraphQLString },
   },
-  resolve: async (_, { _id }) => {
+  resolve: async (_, { _id, userID }) => {
     const propertyClass = new PropertyClass();
-    const res = await propertyClass.deleteProperty(_id);
-    console.log(res);
-    if (res.value) {
-      return true;
-    } else {
-      return false;
+    const userClass = new UserClass();
+
+    const currUser = await userClass.getUserById(userID);
+    console.log(currUser);
+    if (currUser && currUser._id === userID) {
+      const res = await propertyClass.deleteProperty(_id);
+      if (res.value) {
+        return true;
+      } else {
+        return false;
+      }
     }
+    return false;
   },
 };
